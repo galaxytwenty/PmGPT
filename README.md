@@ -19,4 +19,6 @@ chatgpt Say this is a test<br>
 Question: Say this is a test<br>
 Answer: This is a test<br>
 
+WARNING SSL verification is still disabled. I'm looking for a solution<br>
+
 [GLX20]
