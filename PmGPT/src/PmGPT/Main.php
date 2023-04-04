@@ -1,43 +1,55 @@
 <?php
 namespace PmGPT;
 
+
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
-
+use pocketmine\scheduler\ClosureTask;
+use pocketmine\utils\Config;
 
 
 class Main extends PluginBase implements Listener {
 
-
+protected Config $config;
 
     public function onEnable() :void {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        $this->saveResource("config.yml");
+        $this->config = new Config($this->getDataFolder() . "config.yml", 2);
+        if($this->config->get("OpenAiApiKey") === ""){
+            $this->getLogger()->error("§cNo Api-Key set....Plugin disable");
+            $this->getServer()->getPluginManager()->disablePlugin($this);
+        }
     }
+
 
     public function onPlayerChat(PlayerChatEvent $event) {
         $player = $event->getPlayer();
         $message = $event->getMessage();
-        if(strpos(strtolower($message), "chatgpt") !== false) {
-            $question = str_ireplace("chatgpt", "", $message);
+        if(str_contains(strtolower($message), "chatgpt")) {
+            $question = preg_replace('/^chatgpt\s+/i', '', $message);
             $response = $this->getGPTResponse($question);
-            $player->sendMessage($response);
+            $delayTicks = 2;
+            $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() use ($player, $delayTicks, $response) : void {
+                $player->sendMessage("§a".$response);
+            }), $delayTicks);
+
         }
     }
 
-    public function getGPTResponse($prompt)
-    {
-        $url = 'https://api.openai.com/v1/chat/completions';
-        $auth_token = 'Here the API-Key';
-        $question = $prompt;
+
+    function getGPTResponse($question) {
+        $temperature = 0.2;
+        $url = 'https://api.openai.com/v1/completions';
+        $auth_token = $this->config->get("OpenAiApiKey");
         $data = array(
-            "model" => "text-davinci-002",
-            "messages" => array(
-                array(
-                    "role" => "user",
-                    "content" => $question
-                )
-            )
+            'model' => 'text-davinci-003',
+            'prompt' => $question,
+            'temperature' => $temperature,
+            'max_tokens' => 150,
+            'frequency_penalty' => 0,
+            'presence_penalty' => 0.6,
         );
         $payload = json_encode($data);
         $headers = array(
@@ -53,27 +65,13 @@ class Main extends PluginBase implements Listener {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-
-        if(curl_errno($ch)){
-            $dump =  curl_error($ch);
-            var_dump("ERROR ".$dump);
-        }
-        var_dump($info);
-        var_dump($result);
-
         curl_close($ch);
         $response = json_decode($result, true);
-        var_dump($response);
         $answer = "";
-        if (!empty($response['choices'][0]['message']['content'])) {
-            $answer = $response['choices'][0]['message']['content'];
-            var_dump($answer);
+        if (!empty($response['choices'][0]['text'])) {
+            $answer = trim($response['choices'][0]['text']);
         }
         return $answer;
     }
-
-
-
 
 }
