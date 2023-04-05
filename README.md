@@ -19,6 +19,11 @@ chatgpt Say this is a test<br>
 Question: Say this is a test<br>
 Answer: This is a test<br>
 
+
+PREVIEW:<br>
+chatgpt tell me good names for factions.<br>
+![EXAMPLE](https://user-images.githubusercontent.com/79281788/229948384-927f6786-4f90-4869-8e6c-7a7b570a960e.png)<br>
+
 WARNING SSL verification is still disabled. I'm looking for a solution<br>
 
 [GLX20]
