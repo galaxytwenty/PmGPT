@@ -1,5 +1,4 @@
-PmGPT
-
+![Readme](https://user-images.githubusercontent.com/79281788/230729315-414e95a9-9d1e-4df9-adbc-40a72cf16a20.png)<br>
 Plugin for pocketmine-MP API4+<br>
 Ask a question and become answer from ChatGPT text-davinci-003 modell<br>
 
@@ -14,6 +13,7 @@ HOW TO START ?<br>
 Just put your API-KEY in the config.yml and start the server.<br>
 All messages that beginns with chatgpt is a question.
 
+
 EXAMPLE:<br>
 chatgpt Say this is a test<br>
 Question: Say this is a test<br>
@@ -24,6 +24,5 @@ PREVIEW:<br>
 chatgpt tell me good names for factions.<br>
 ![EXAMPLE](https://user-images.githubusercontent.com/79281788/229948384-927f6786-4f90-4869-8e6c-7a7b570a960e.png)<br>
 
-WARNING SSL verification is still disabled. I'm looking for a solution<br>
 
 [GLX20]
