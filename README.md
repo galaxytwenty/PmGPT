@@ -8,6 +8,7 @@ https://platform.openai.com/account/api-keys<br>
 The use of OpenAi ChatgGTP is limited in the free trial.<br>
 You get a $5 grant per registration, after which you have to top up your credit or create a new account.<br>
 Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1,000 tokens is about 750 words.<br>
+$0.002 / 1K tokens.<br>
 
 HOW TO START ?<br>
 Just put your API-KEY in the config.yml and start the server.<br>
