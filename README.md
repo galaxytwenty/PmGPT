@@ -25,5 +25,10 @@ PREVIEW:<br>
 chatgpt tell me good names for factions.<br>
 ![EXAMPLE](https://user-images.githubusercontent.com/79281788/229948384-927f6786-4f90-4869-8e6c-7a7b570a960e.png)<br>
 
+### TODO-List
+- [x] Add gpt-3.5-turbo model instead of text-davinci-002
+- [x] Add remembering previous questions
+- [ ] Inform user when ChatGPT is at capacity 
+- [ ] Send a please wait message if the response takes a little longer
 
 [GLX20]
