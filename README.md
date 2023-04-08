@@ -12,6 +12,7 @@ Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1
 HOW TO START ?<br>
 Just put your API-KEY in the config.yml and start the server.<br>
 All messages that beginns with chatgpt is a question.
+Only users with ```pmgpt.use``` permission can receive a reply
 
 
 EXAMPLE:<br>
