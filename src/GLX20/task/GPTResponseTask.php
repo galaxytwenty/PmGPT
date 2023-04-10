@@ -2,7 +2,7 @@
 namespace GLX20\task;
 
 
-use GLX20\PmGPT\Main;
+use GLX20\Main;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\Config;
 
