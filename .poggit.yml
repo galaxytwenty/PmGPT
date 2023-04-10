@@ -1,0 +1,9 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/galaxytwenty/PmGPT
+build-by-default: true
+branches:
+- main
+projects:
+  PmGPT:
+    path: ""
+    icon: icon.png
+...
