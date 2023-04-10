@@ -29,7 +29,8 @@ chatgpt tell me good names for factions.<br>
 ### TODO-List
 - [x] Add gpt-3.5-turbo model instead of text-davinci-002
 - [x] Add remembering previous questions
-- [ ] Inform user when ChatGPT is at capacity 
-- [ ] Send a please wait message if the response takes a little longer
+- [ ] Inform user when ChatGPT is at capacity
+- [ ] Work with UI instead of Chat 
+- [x] Send a please wait message if the response takes a little longer
 
 [GLX20]
