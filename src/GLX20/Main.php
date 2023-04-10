@@ -11,7 +11,7 @@ use pocketmine\utils\Config;
 
 
 class Main extends PluginBase implements Listener {
-    private static main $instance;
+    private static Main $instance;
     protected Config $config;
     public string $response;
 
