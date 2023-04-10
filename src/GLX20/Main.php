@@ -2,7 +2,7 @@
 namespace GLX20;
 
 
-use GLX20\PmGPT\task\GPTResponseTask;
+use GLX20\task\GPTResponseTask;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
