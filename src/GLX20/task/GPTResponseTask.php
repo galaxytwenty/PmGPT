@@ -29,8 +29,6 @@ class GPTResponseTask extends AsyncTask {
         } else {
             $query = "User: $this->question";
         }
-
-       // $query = implode("\n", (array)$this->conversation) . "\nUser: $this->question";
         $url = 'https://api.openai.com/v1/chat/completions';
         $api_key = $this->config->get("OpenAiApiKey");
         $post_fields = array(
@@ -66,9 +64,12 @@ class GPTResponseTask extends AsyncTask {
 
     public function onCompletion():void {
         $response = $this->getResult();
-        if(is_string($response)) {
-            Main::getInstance()->getServer()->getPlayerExact($this->playerName)->sendMessage("§cAn error occurred: " . $response);
-        } else if (!empty($response->choices[0]->message->content)) {
+        if (isset($response->error) && isset($response->error->message)) {
+            $message = $response->error->message;
+            Main::getInstance()->getServer()->getPlayerExact($this->playerName)->sendMessage("§4ChatGPT: §a".$message);
+            return;
+        }
+        if(!empty($response->choices[0]->message->content)) {
             $answer = trim($response->choices[0]->message->content);
 
             $filename = $this->playerName . "_chat.txt";
@@ -78,9 +79,7 @@ class GPTResponseTask extends AsyncTask {
             }
             $filepath = $dir . $filename;
             $conversation = file_exists($filepath) ? file_get_contents($filepath) : "";
-
             file_put_contents($filepath, $conversation . "user: $this->question\n" . $answer . "\n");
-
             Main::getInstance()->getServer()->getPlayerExact($this->playerName)->sendMessage("§4ChatGPT:\n§a" . $answer);
         }
     }
