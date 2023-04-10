@@ -1,6 +1,10 @@
 name: PmGPT
 version: 0.1
 api: 4.0.0
-main: PmGPT\Main
+main: GLX20\PmGPT\Main
 author: GLX20
 
+permissions:
+  pmgpt.use:
+    default: op
+    description: Allows use chatGPT in minecraft chat
