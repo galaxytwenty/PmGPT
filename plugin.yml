@@ -1,7 +1,7 @@
 name: PmGPT
 version: 0.1
 api: 4.0.0
-main: PmGPT\GLX20\Main
+main: GLX20\Main
 author: GLX20
 
 permissions:
