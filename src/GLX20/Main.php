@@ -1,5 +1,5 @@
 <?php
-namespace GLX20;
+namespace GLX20\Main;
 
 
 use GLX20\task\GPTResponseTask;
