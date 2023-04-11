@@ -32,6 +32,7 @@ chatgpt tell me good names for factions.<br>
 - [x] Run response action on async task to prevent freeze on waiting for response
 - [ ] Inform user when ChatGPT is at capacity
 - [ ] Work with UI instead of Chat 
+- [ ] Add SSL certificate by using https://github.com/Muqsit/CurlWithSSL
 - [x] Send a please wait message if the response takes a little longer
 
 
