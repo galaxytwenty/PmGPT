@@ -1,6 +1,6 @@
 ![Readme](https://user-images.githubusercontent.com/79281788/230729315-414e95a9-9d1e-4df9-adbc-40a72cf16a20.png)<br>
 Plugin for pocketmine-MP API4+<br>
-Ask a question and become answer from gpt-3.5-turbo model<br>
+Ask a question and get answer from gpt-3.5-turbo model<br>
 
 Works only with API-KEY<br>
 https://platform.openai.com/account/api-keys<br>
@@ -10,7 +10,7 @@ You get a $5 grant per registration, after which you have to top up your credit 
 Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1,000 tokens is about 750 words.<br>
 $0.002 / 1K tokens.<br>
 
-HOW TO START ?<br>
+HOW TO START?<br>
 Just put your API-KEY in the config.yml and start the server.<br>
 All messages that beginns with chatgpt is a question.
 Only users with ```pmgpt.use``` permission can receive a reply
@@ -36,5 +36,5 @@ chatgpt tell me good names for factions.<br>
 - [x] Send a please wait message if the response takes a little longer
 
 
-Suggestions ?, let me know!<br>
+Suggestions?, let me know!<br>
 Pocketmine-MP API4 [GLX20]<br>
