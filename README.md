@@ -1,6 +1,6 @@
 ![Readme](https://user-images.githubusercontent.com/79281788/230729315-414e95a9-9d1e-4df9-adbc-40a72cf16a20.png)<br>
 Plugin for pocketmine-MP API4+<br>
-Ask a question and get answer from gpt-3.5-turbo model<br>
+Ask a question and get an answer from gpt-3.5-turbo model<br>
 
 Works only with API-KEY<br>
 https://platform.openai.com/account/api-keys<br>
