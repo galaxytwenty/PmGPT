@@ -1,8 +1,8 @@
 <?php
-namespace GLX20;
+namespace GLX20\PmGPT;
 
 
-use GLX20\task\GPTResponseTask;
+use GLX20\PmGPT\task\GPTResponseTask;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;

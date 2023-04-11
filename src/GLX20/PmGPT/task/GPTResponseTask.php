@@ -1,8 +1,8 @@
 <?php
-namespace GLX20\task;
+namespace GLX20\PmGPT\task;
 
 
-use GLX20\Main;
+use GLX20\PmGPT\Main;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\Config;
 
