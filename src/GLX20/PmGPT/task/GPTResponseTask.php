@@ -82,7 +82,7 @@ class GPTResponseTask extends AsyncTask {
 
             $filepath = $dir . $filename;
             $conversation = file_exists($filepath) ? file_get_contents($filepath) : "";
-            file_put_contents($filepath, $conversation . "§auser: $this->question\n§c" . $answer . "\n");
+            file_put_contents($filepath, $conversation . "§r§auser: $this->question\n\n§r§c" . $answer . "\n\n");
             $form = new CustomForm(function (Player $player, $data) use ($filepath) {
                 if ($data === null) {
                     return false;
