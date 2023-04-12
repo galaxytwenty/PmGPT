@@ -55,7 +55,6 @@ class GPTResponseTask extends AsyncTask {
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_fields));
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         $result = curl_exec($ch);
-        var_dump($result);
         if (curl_errno($ch)) {
             $this->setResult('Error: ' . curl_error($ch));
         } else {
@@ -92,7 +91,7 @@ class GPTResponseTask extends AsyncTask {
                 Main::getInstance()->getServer()->getPlayerExact($this->playerName)->sendMessage("§4ChatGPT: §aPlease wait while i generate a response...");
                 return false;
             });
-            $form->setTitle("§l§2[ §aPm§4GPT§r §2]");
+            $form->setTitle("§l§2[ §aPm§4GPT§r §l§2]");
             $conversation = file_exists($filepath) ? file_get_contents($filepath) : "";
             $form->addLabel("Chat history:\n" . $conversation);
             $form->addInput("§3Whats your question ?\n");
