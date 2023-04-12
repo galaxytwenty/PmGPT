@@ -1,54 +1,55 @@
 <?php
 namespace GLX20\PmGPT;
 
-
 use GLX20\PmGPT\task\GPTResponseTask;
-use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerChatEvent;
+use pocketmine\command\Command;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
-use pocketmine\scheduler\ClosureTask;
 use pocketmine\utils\Config;
+use pocketmine\command\CommandSender;
+use jojoe77777\FormAPI\CustomForm;
 
-
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase{
     private static Main $instance;
     protected Config $config;
     public string $response;
 
     public function onEnable() :void {
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
         self::$instance = $this;
+        $this->saveResource("config.yml");
+        $this->config = new Config($this->getDataFolder() . "config.yml", 2);
     }
 
     public static function getInstance() : Main {
         return self::$instance;
     }
 
-    public function onLoad(): void
+    public function onCommand(CommandSender $sender, Command $cmd, String $label, Array $args) : bool
     {
-        $this->saveResource("config.yml");
-        $this->config = new Config($this->getDataFolder() . "config.yml", 2);
-        if($this->config->get("OpenAiApiKey") === ""){
-            $this->getLogger()->error("§cNo Api-Key set....Plugin disable");
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-        }
-    }
+        switch ($cmd->getName()) {
+            case "chatgpt":
+                if ($sender instanceof Player) {
+                    if ($sender->hasPermission("pmgpt.use")) {
+                        $form = new CustomForm(function (Player $player, $data) {
+                            if ($data === null) {
+                                return false;
+                            }
+                            if($this->config->get("OpenAiApiKey") === ""){
+                                $player->sendMessage("§cNo valid API-key set in config.yml");
+                            }
+                            $filepath = $this->getDataFolder() . "temp/".$player->getName()."_chat.txt";
+                            $question = $data[0];
+                            $this->getServer()->getAsyncPool()->submitTask(new GPTResponseTask($question, $this->config, $player->getName(), $filepath));
+                            $player->sendMessage("§4ChatGPT: §aPlease wait while I generate a response...");
+                            return false;
+                        });
+                        $form->setTitle("§l§2[ §aPm§4GPT§r §2]");
+                        $form->addInput("§3Whats your question ?\n");
+                        $form->sendToPlayer($sender);
+                    }
 
-    public function onPlayerChat(PlayerChatEvent $event) {
-        $player = $event->getPlayer();
-        $message = $event->getMessage();
-        $playerName = $event->getPlayer()->getName();
-        $filepath = $this->getDataFolder() . "temp/".$playerName."_chat.txt";
-        if($player->hasPermission("pmgpt.use")){
-            if(str_contains(strtolower($message), "chatgpt")) {
-                $question = preg_replace('/^chatgpt\s+/i', '', $message);
-                $this->getServer()->getAsyncPool()->submitTask(new GPTResponseTask($question, $this->config, $playerName, $filepath));
-                $delayTicks = 2;
-                $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function () use ($player): void {
-                    $player->sendMessage("§4ChatGPT: §aPlease wait while I generate a response...");
-                }), $delayTicks);
-            }
+                }
         }
+        return false;
     }
-
 }
