@@ -43,7 +43,7 @@ class Main extends PluginBase{
                             $player->sendMessage("§4ChatGPT: §aPlease wait while I generate a response...");
                             return false;
                         });
-                        $form->setTitle("§l§2[ §aPm§4GPT§r §2]");
+                        $form->setTitle("§l§2[ §aPm§4GPT§r §l§2]");
                         $form->addInput("§3Whats your question ?\n");
                         $form->sendToPlayer($sender);
                     }
