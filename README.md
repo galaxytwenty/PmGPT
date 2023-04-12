@@ -11,9 +11,11 @@ The $5 grant are only valid for one month.<br>
 Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1,000 tokens is about 750 words.<br>
 $0.002 / 1K tokens.<br>
 
-### Data storage 🗂
+### Data storage and use 🗂
 So that each user can have his own conversation. This plugin saves the chat history with ChatGPT in a .txt file<br>
 This file is saved in plugin_data\PmGPT\temp\playername_chat.txt after the first question.<br>
+<br>
+PmGPT use libFormAPI to create the UI
 
 ### How to Start ? ▶
 Just put your API-KEY in the config.yml and start the server.<br>
