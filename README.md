@@ -1,4 +1,8 @@
 ![Readme](https://user-images.githubusercontent.com/79281788/230729315-414e95a9-9d1e-4df9-adbc-40a72cf16a20.png)<br>
+[![](https://poggit.pmmp.io/shield.api/PmGPT)](https://poggit.pmmp.io/p/PmGPT)
+[![](https://poggit.pmmp.io/shield.state/PmGPT)](https://poggit.pmmp.io/p/PmGPT)
+[![GitHub license](https://img.shields.io/badge/license-Apache-blue.svg)](
+https://github.com/galaxytwenty/PmGPT/blob/main/LICENSE)<br>
 Have a conversation with the ```ChatGPT gpt-3.5-turbo model```<br>
 Plugin for Pocketmine-MP API4+<br>
 
