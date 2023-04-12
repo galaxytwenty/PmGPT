@@ -4,7 +4,13 @@ api: 4.0.0
 main: GLX20\PmGPT\Main
 author: GLX20
 
+commands:
+  chatgpt:
+    permission: pmgpt.use
+    description: "Ask a question to ChatGPT"
+    permission-message: "§4Not allowed to use PmGPT"
+
 permissions:
   pmgpt.use:
     default: op
-    description: Allows use chatGPT in minecraft chat
+    description: Allow to use PmGPT
