@@ -18,8 +18,12 @@ $0.002 / 1K tokens.<br>
 ### Data storage and use 🗂
 So that each user can have his own conversation. This plugin saves the chat history with ChatGPT in a .txt file<br>
 This file is saved in plugin_data\PmGPT\temp\playername_chat.json after the first question.<br>
+The user can delete this file himself for private reasons.<br>
 <br>
-PmGPT use libFormAPI to create the UI
+if usePluginCertFile is true in the config, the plugin uses the cacert.pem from https://curl.haxx.se/ca/cacert.pem<br>
+if not you have to make sure you can establish a secure SSL connection from system<br>
+<br>
+PmGPT use libFormAPI to create the UI<br>
 
 ### How to Start ? ▶
 Just put your API-KEY in the config.yml and start the server.<br>
@@ -28,9 +32,9 @@ Depending on how busy ChatGPT is, an answer can take between 2 and 30+ seconds<b
 
 ### few-shot learning ⚙️
 After you have started the server for the first time, you will find a file called initialPrompt.yml in the plugin_data/PmGPT folder.<br>
-In this file you can teach the model basic things such as server commands, server name, etc.
-In addition, certain dynamic data from the server, such as the player name or the number of online players, can be taught to the model.
-You can find more information in the initialPrompt.yml file.
+In this file you can teach the model basic things such as server commands, server name, etc.<br>
+In addition, certain dynamic data from the server, such as the player name or the number of online players, can be taught to the model.<br>
+You can find more information in the initialPrompt.yml file.<br>
 
 ### Answer preview 🤖💬
 ***Question: tell me good names for factions***<br>
