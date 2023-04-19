@@ -1,5 +1,5 @@
 name: PmGPT
-version: 0.5
+version: 0.8
 api: 4.0.0
 main: GLX20\PmGPT\Main
 author: GLX20
