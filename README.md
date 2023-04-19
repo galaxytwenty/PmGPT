@@ -26,7 +26,7 @@ Just put your API-KEY in the config.yml and start the server.<br>
 Only users with ```pmgpt.use``` permission can run the command ```/chatgpt```<br>
 Depending on how busy ChatGPT is, an answer can take between 2 and 30+ seconds<br>
 
-### few-Shot learning ⚙️
+### few-shot learning ⚙️
 After you have started the server for the first time, you will find a file called initialPrompt.yml in the plugin_data/PmGPT folder.<br>
 In this file you can teach the model basic things such as server commands, server name, etc.
 In addition, certain dynamic data from the server, such as the player name or the number of online players, can be taught to the model.
