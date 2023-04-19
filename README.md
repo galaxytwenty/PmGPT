@@ -46,6 +46,8 @@ You can find more information in the initialPrompt.yml file.
 - ✅ Work with UI instead of Chat 
 - ✅ Delete the conversation
 - ✅ Add SSL certificate by using https://curl.haxx.se/ca/cacert.pem
+- ✅ Enable/Disable UseInsecureConnection in config
+- ✅ Enable/Disable usePluginCertFile in config
 
 ### ToDos
 - [ ] Inform user when ChatGPT is at capacity
