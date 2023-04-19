@@ -41,9 +41,14 @@ You can find more information in the initialPrompt.yml file.
 - ✅ Add gpt-3.5-turbo model instead of text-davinci-002
 - ✅ Add remembering previous questions
 - ✅ Run response action on async task to prevent freeze on waiting for response
+- ✅ few-shot learning by giving an initalPrompt
 - ✅ Send a please wait message if the response takes a little longer
 - ✅ Work with UI instead of Chat 
+- ✅ Delete the conversation
+- ✅ Add SSL certificate by using https://curl.haxx.se/ca/cacert.pem
 
 ### ToDos
 - [ ] Inform user when ChatGPT is at capacity
-- [ ] Add SSL certificate by using https://github.com/Muqsit/CurlWithSSL
+- [ ] Add language file system to support more languages
+- [ ] a switch between chat or window mode would be good
+- [ ] Add more dynamic tags
