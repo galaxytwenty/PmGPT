@@ -31,7 +31,9 @@ class Main extends PluginBase{
         $contents = stream_get_contents($resource);
         fclose($resource);
         $resource = tmpfile();
-        $resource !== false || throw new RuntimeException("Failed to create a temporary file to store CA certificate");
+               if ($resource === false) {
+            throw new RuntimeException("Failed to create a temporary file to store CA certificate");
+        }
         fwrite($resource, $contents);
         $this->cainfo_path = stream_get_meta_data($resource)["uri"];
         $this->_cainfo_resource = $resource;
