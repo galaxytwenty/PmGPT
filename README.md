@@ -16,12 +16,12 @@ Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1
 $0.002 / 1K tokens.<br>
 
 ### Data storage and use 🗂
-So that each user can have his own conversation. This plugin saves the chat history with ChatGPT in a .txt file<br>
+So that each user can have his own conversation. This plugin saves the chat history with ChatGPT in a .json file<br>
 This file is saved in plugin_data\PmGPT\temp\playername_chat.json after the first question.<br>
 The user can delete this file himself for private reasons.<br>
 <br>
 if usePluginCertFile is true in the config, the plugin uses the cacert.pem from https://curl.haxx.se/ca/cacert.pem<br>
-if not you have to make sure you can establish a secure SSL connection from system<br>
+if not you have to make sure you can establish a secure SSL connection from your system<br>
 <br>
 PmGPT use libFormAPI to create the UI<br>
 
@@ -35,6 +35,16 @@ After you have started the server for the first time, you will find a file calle
 In this file you can teach the model basic things such as server commands, server name, etc.<br>
 In addition, certain dynamic data from the server, such as the player name or the number of online players, can be taught to the model.<br>
 You can find more information in the initialPrompt.yml file.<br>
+
+### Dynamic Tags 📚
+There are several dynamic tags that can be added to the initialPromt, the following is a list of all available dynamic tags<br>
+#{player_name} The name of the player
+#{online_players} A number of online players
+#{max_online_players} A number from max allowed online players
+#{players_names_online} A List of names from online players
+#{item_in_hand} A name from the item in Players hand
+#{player_level} A number from Xp-level from player
+#{player_world} Name of the world the player is in
 
 ### Answer preview 🤖💬
 ***Question: tell me good names for factions***<br>
@@ -57,4 +67,4 @@ You can find more information in the initialPrompt.yml file.<br>
 - [ ] Inform user when ChatGPT is at capacity
 - [ ] Add language file system to support more languages
 - [ ] a switch between chat or window mode would be good
-- [ ] Add more dynamic tags
+- [ ] Add more dynamic tags, suggestions ?
