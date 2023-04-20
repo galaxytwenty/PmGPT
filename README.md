@@ -34,17 +34,18 @@ Depending on how busy ChatGPT is, an answer can take between 2 and 30+ seconds<b
 After you have started the server for the first time, you will find a file called initialPrompt.yml in the plugin_data/PmGPT folder.<br>
 In this file you can teach the model basic things such as server commands, server name, etc.<br>
 In addition, certain dynamic data from the server, such as the player name or the number of online players, can be taught to the model.<br>
+my initialPrompt example is probably not the best and only serves as an example. users should customise it according to their needs by editing the file.<br>
 You can find more information in the initialPrompt.yml file.<br>
 
 ### Dynamic Tags 📚
 There are several dynamic tags that can be added to the initialPromt, the following is a list of all available dynamic tags<br>
-#{player_name} The name of the player
-#{online_players} A number of online players
-#{max_online_players} A number from max allowed online players
-#{players_names_online} A List of names from online players
-#{item_in_hand} A name from the item in Players hand
-#{player_level} A number from Xp-level from player
-#{player_world} Name of the world the player is in
+#{player_name} The name of the player<br>
+#{online_players} A number of online players<br>
+#{max_online_players} A number from max allowed online players<br>
+#{players_names_online} A List of names from online players<br>
+#{item_in_hand} A name from the item in Players hand<br>
+#{player_level} A number from Xp-level from player<br>
+#{player_world} Name of the world the player is in<br>
 
 ### Answer preview 🤖💬
 ***Question: tell me good names for factions***<br>
