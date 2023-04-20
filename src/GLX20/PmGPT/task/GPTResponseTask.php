@@ -63,7 +63,6 @@ class GPTResponseTask extends AsyncTask {
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_fields));
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         $result = curl_exec($ch);
-        var_dump($result);
         if (curl_errno($ch)) {
             $this->setResult('Error: ' . curl_error($ch));
         } else {
