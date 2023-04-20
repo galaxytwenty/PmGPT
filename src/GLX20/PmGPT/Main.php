@@ -103,7 +103,6 @@ class Main extends PluginBase{
             $playerNames[] = $player->getName();
         }
         $playerList = implode(", ", $playerNames);
-        var_dump($playerList);
         return $playerList;
     }
 
