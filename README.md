@@ -80,7 +80,7 @@ There are several dynamicTags that can be added to the ```initialPromt.yml``` th
 ```{player_level}``` A number from Xp-level from player<br>
 ```{player_world}``` Name of the world the player is in<br>
 
-### Features
+### Features 🎉
 - ✅ Add gpt-3.5-turbo model instead of text-davinci-002
 - ✅ Add remembering previous questions
 - ✅ Run response action on async task to prevent freeze on waiting for response
@@ -94,7 +94,7 @@ There are several dynamicTags that can be added to the ```initialPromt.yml``` th
 - ✅ support for "set model" to set the "using model" in config.yml
 - ✅ Multi language support
 
-### ToDos
+### ToDos 📆
 - [ ] Inform user when ChatGPT is at capacity
 - [ ] a switch between chat or window mode would be good
 - [ ] Add more dynamic tags, suggestions ?
