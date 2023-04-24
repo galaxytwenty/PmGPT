@@ -92,7 +92,7 @@ There are several dynamicTags that can be added to the ```initialPromt.yml``` th
 - ✅ Enable/Disable UseInsecureConnection in config
 - ✅ Enable/Disable usePluginCertFile in config
 - ✅ support for "set model" to set the "using model" in config.yml
-- ✅ Add language file system
+- ✅ Multi language support
 
 ### ToDos
 - [ ] Inform user when ChatGPT is at capacity
