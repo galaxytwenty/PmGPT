@@ -1,0 +1,17 @@
+---
+#en_EN English
+#
+CaError: "Failed to create a temporary file to store CA certificate"
+deleteConversation: "Your previous conversation has been §cdeleted"
+noConversationFound: "§cNo conversation found to delete"
+noValidApiKey: "§cNo valid API-key set in config.yml"
+generateResponse: "§4ChatGPT: §aPlease wait while I generate a response..."
+
+formTitle: "§l§2[ §aPm§4GPT§r §l§2]"
+inputText: "§3Whats your question ?\n"
+labelText: "You can §cdelete§r your saved conversation by typing §6/chatgpt delete§r"
+formTitleInConv: "§l§2[ §aPm§4GPT§r §l§2]"
+labelTextInConv: "Chat history:\n"
+inputTextInConv: "§3Whats your question ?\n"
+
+...

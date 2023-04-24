@@ -1,0 +1,17 @@
+---
+#de_DE German, Deutsch
+#
+CaError: "Erstellung einer temporären Datei zum Speichern des CA-Zertifikats fehlgeschlagen"
+deleteConversation: "Ihr vorheriges Gespräch wurde §cgelöscht"
+noConversationFound: "§cKeine Konversation zum Löschen gefunden"
+noValidApiKey: "§cKein gültiger API-Key in config.yml gesetzt"
+generateResponse: "§4ChatGPT: §aBitte warten Sie, während ich eine Antwort generiere..."
+
+formTitle: "§l§2[ §aPm§4GPT§r §l§2]"
+inputText: "§3Wie lautet Ihre Frage ?\n"
+labelText: "Sie können Ihr gespeichertes Gespräch §cLöschen§r, indem Sie §6/chatgpt delete§r eingeben."
+formTitleInConv: "§l§2[ §aPm§4GPT§r §l§2]"
+labelTextInConv: "Chat verlauf:\n"
+inputTextInConv: "§3Wie lautet Ihre Frage ?\n"
+
+...
