@@ -5,7 +5,6 @@ use GLX20\PmGPT\Main;
 use jojoe77777\FormAPI\CustomForm;
 use pocketmine\player\Player;
 use pocketmine\scheduler\AsyncTask;
-use pocketmine\Server;
 use pocketmine\utils\Config;
 
 class GPTResponseTask extends AsyncTask {
@@ -63,6 +62,7 @@ class GPTResponseTask extends AsyncTask {
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_fields));
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         $result = curl_exec($ch);
+        var_dump($result);
         if (curl_errno($ch)) {
             $this->setResult('Error: ' . curl_error($ch));
         } else {
@@ -110,12 +110,12 @@ class GPTResponseTask extends AsyncTask {
                 }
                 $question = $data[1];
                 Main::getInstance()->getServer()->getAsyncPool()->submitTask(new GPTResponseTask($question, $this->config, $this->playerName, $filepath, $this->cainfo_path, $this->initialPrompt));
-                Main::getInstance()->getServer()->getPlayerExact($this->playerName)->sendMessage("§4ChatGPT: §aPlease wait while i generate a response...");
+                Main::getInstance()->getServer()->getPlayerExact($this->playerName)->sendMessage(Main::getInstance()->outputData['generateResponse']);
                 return false;
             });
-            $form->setTitle("§l§2[ §aPm§4GPT§r §l§2]");
-            $form->addLabel("Chat history:\n" . $chatHistory);
-            $form->addInput("§3Whats your question ?\n");
+            $form->setTitle(Main::getInstance()->outputData['formTitleInConv']);
+            $form->addLabel(Main::getInstance()->outputData['labelTextInConv'] . $chatHistory);
+            $form->addInput(Main::getInstance()->outputData['inputTextInConv']);
             $form->sendToPlayer(Main::getInstance()->getServer()->getPlayerExact($this->playerName));
         }
     }
