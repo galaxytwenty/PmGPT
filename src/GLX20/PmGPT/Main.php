@@ -15,10 +15,11 @@ class Main extends PluginBase{
     public static Main $instance;
     protected Config $config;
     protected Config $initString;
+    protected Config $messages;
     public string $response;
     public string $cainfo_path;
     private mixed $_cainfo_resource;
-
+    public array $outputData;
 
 
     public function onEnable() :void {
@@ -27,12 +28,15 @@ class Main extends PluginBase{
         $this->saveResource("initialPrompt.yml");
         $this->config = new Config($this->getDataFolder() . "config.yml", 2);
         $this->initString = new Config($this->getDataFolder() . "initialPrompt.yml", 2);
+        $this->saveResource($this->config->get("language").".yml");
+        $this->messages = new Config($this->getDataFolder() . $this->config->get("language").".yml", 2);
+        $this->outputData = $this->messages->getAll();
         $resource = $this->getResource("cacert.pem");
         $contents = stream_get_contents($resource);
         fclose($resource);
         $resource = tmpfile();
-               if ($resource === false) {
-            throw new RuntimeException("Failed to create a temporary file to store CA certificate");
+        if ($resource === false) {
+            throw new RuntimeException($this->outputData['CaError']);
         }
         fwrite($resource, $contents);
         $this->cainfo_path = stream_get_meta_data($resource)["uri"];
@@ -52,10 +56,10 @@ class Main extends PluginBase{
                     if (isset($args[0]) && $args[0] === "delete"){
                         if(file_exists($this->getDataFolder() . "temp/".$sender->getName()."_chat.json")){
                             unlink($this->getDataFolder() . "temp/".$sender->getName()."_chat.json");
-                            $sender->sendMessage("Your previous conversation has been §cdeleted");
+                            $sender->sendMessage($this->outputData['deleteConversation']);
                             return false;
                         }else{
-                            $sender->sendMessage("§cNo conversation found to delete");
+                            $sender->sendMessage($this->outputData['noConversationFound']);
                             return false;
                         }
                     }
@@ -65,7 +69,7 @@ class Main extends PluginBase{
                                 return false;
                             }
                             if($this->config->get("OpenAiApiKey") === ""){
-                                $player->sendMessage("§cNo valid API-key set in config.yml");
+                                $player->sendMessage($this->outputData['noValidApiKey']);
                             }
                             $filename = $player->getName() . "_chat.json";
                             $dir = $this->getDataFolder() . "temp/";
@@ -74,12 +78,12 @@ class Main extends PluginBase{
 
 
                             $this->getServer()->getAsyncPool()->submitTask(new GPTResponseTask($question, $this->config, $player->getName(), $filepath, $this->cainfo_path, $this->getInitialPrompt($player)));
-                            $player->sendMessage("§4ChatGPT: §aPlease wait while I generate a response...");
+                            $player->sendMessage($this->outputData['generateResponse']);
                             return false;
                         });
-                        $form->setTitle("§l§2[ §aPm§4GPT§r §l§2]");
-                        $form->addInput("§3Whats your question ?\n");
-                        $form->addLabel("You can §cdelete§r your saved conversation by typing §6/chatgpt delete§r");
+                        $form->setTitle($this->outputData['formTitle']);
+                        $form->addInput($this->outputData['inputText']);
+                        $form->addLabel($this->outputData['labelText']);
                         $form->sendToPlayer($sender);
                     }
 
@@ -122,7 +126,7 @@ class Main extends PluginBase{
         $initPrompt = strtr($initString, $placeholders);
         return $initPrompt;
     }
-    
+
     protected function onDisable() : void{
         fclose($this->_cainfo_resource);
         unset($this->_cainfo_resource);
