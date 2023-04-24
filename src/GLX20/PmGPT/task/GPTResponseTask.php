@@ -39,7 +39,7 @@ class GPTResponseTask extends AsyncTask {
         $url = 'https://api.openai.com/v1/chat/completions';
         $api_key = $this->config->get("OpenAiApiKey");
         $post_fields = array(
-            "model" => "gpt-3.5-turbo",
+            "model" => (string)$this->config->get("model"),
             "messages" => $messages,
             "max_tokens" => (int)$this->config->get("maxTokens"),
             "temperature" => (int)$this->config->get("temperature")
