@@ -1,6 +1,8 @@
 ---
 #PmGTP config
-
+#
+#Language (Available Languages: [en_EN, de_DE] (default en_EN)
+language: "en_EN"
 #Put here the API key from OpenAI, get it here https://platform.openai.com/account/api-keys
 OpenAiApiKey: ""
 #
