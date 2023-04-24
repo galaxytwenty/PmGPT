@@ -91,11 +91,11 @@ There are several dynamicTags that can be added to the ```initialPromt.yml``` th
 - ✅ Add SSL certificate by using https://curl.haxx.se/ca/cacert.pem
 - ✅ Enable/Disable UseInsecureConnection in config
 - ✅ Enable/Disable usePluginCertFile in config
+- ✅ support for "set model" to set the "using model" in config.yml
+- ✅ Add language file system
 
 ### ToDos
 - [ ] Inform user when ChatGPT is at capacity
-- [ ] Adding support for "set model" to set the "using model" in the config
-- [ ] Add language file system to support more languages
 - [ ] a switch between chat or window mode would be good
 - [ ] Add more dynamic tags, suggestions ?
 
