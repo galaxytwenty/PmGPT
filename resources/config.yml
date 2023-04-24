@@ -24,6 +24,7 @@ usePluginCertFile: true
 temperatur: 0
 #
 #Available models (gpt-4 only use for paid openAI users)
+#More informations: see https://platform.openai.com/docs/models/model-endpoint-compatibility
 #[gpt-4, gpt-4-0314, gpt-4-32k, gpt-4-32k-0314, gpt-3.5-turbo, gpt-3.5-turbo-0301]
 model: "gpt-3.5-turbo"
 ...
